@@ -1,0 +1,6 @@
+framework module Pods________UITests {
+  umbrella header "Pods-รับจ่ายUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

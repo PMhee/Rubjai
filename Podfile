@@ -8,6 +8,8 @@ target 'รับจ่าย' do
 	pod 'SCLAlertView'
 	pod 'CVCalendar'
 	pod 'Charts'	
+	pod 'expanding-collection'
+	pod 'FoldingCell'
 end
 
 target 'รับจ่ายTests' do

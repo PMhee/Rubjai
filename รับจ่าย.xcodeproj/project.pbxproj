@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1971862963A10FAA7DE4C0C5 /* Pods________.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A280D028867D1979B1D476B /* Pods________.framework */; };
+		7CA6E20820EA388A2416C30E /* Pods________Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2924654ACAB33143115937 /* Pods________Tests.framework */; };
+		84A20CF6E71A0EE57ECA1559 /* Pods________UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022D18F8F3B99B1A0BF32EB6 /* Pods________UITests.framework */; };
+		9052244A1D63060100FF1E26 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905224491D63060100FF1E26 /* AccountCell.swift */; };
+		9052244E1D630B4700FF1E26 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9052244D1D630B4700FF1E26 /* test.storyboard */; };
+		905224501D630B8700FF1E26 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052244F1D630B8700FF1E26 /* MainTableViewController.swift */; };
+		9083FE4A1D757AC000F0C5B2 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083FE491D757AC000F0C5B2 /* AddAccountViewController.swift */; };
+		9083FE4C1D79714500F0C5B2 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083FE4B1D79714500F0C5B2 /* EditAccountViewController.swift */; };
+		9083FE4F1D79AB5500F0C5B2 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083FE4E1D79AB5500F0C5B2 /* Accounts.swift */; };
+		9083FE531D79AD6900F0C5B2 /* WishingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083FE521D79AD6900F0C5B2 /* WishingList.swift */; };
+		909326631D82AF0B00B0A843 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909326621D82AF0B00B0A843 /* iAd.framework */; };
 		B70B300D1D320A33009AB70A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70B300C1D320A33009AB70A /* AppDelegate.swift */; };
-		B70B300F1D320A33009AB70A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70B300E1D320A33009AB70A /* ViewController.swift */; };
 		B70B30121D320A33009AB70A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70B30101D320A33009AB70A /* Main.storyboard */; };
 		B70B30141D320A33009AB70A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70B30131D320A33009AB70A /* Assets.xcassets */; };
 		B70B30171D320A33009AB70A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70B30151D320A33009AB70A /* LaunchScreen.storyboard */; };
@@ -26,6 +34,7 @@
 		B7B72E4F1D324FE8003C417F /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72E4E1D324FE8003C417F /* IncomeViewController.swift */; };
 		B7E7404F1D3294DC001A4E3B /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7404E1D3294DC001A4E3B /* ExpenseViewController.swift */; };
 		B7F98AD41D34E72500D3BDB9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F98AD31D34E72500D3BDB9 /* CalendarViewController.swift */; };
+		F4410EEB03A8937A6A05412A /* Pods________.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52556DDB791131D8BF6BE128 /* Pods________.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +55,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A280D028867D1979B1D476B /* Pods________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		549921F138EBDC191CA64948 /* Pods-รับจ่าย.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่าย.debug.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย.debug.xcconfig"; sourceTree = "<group>"; };
-		B4032A3A597E12059AC40C17 /* Pods-รับจ่าย.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่าย.release.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย.release.xcconfig"; sourceTree = "<group>"; };
+		022D18F8F3B99B1A0BF32EB6 /* Pods________UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________UITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC14AF39ABC5ACA70C83BBB /* Pods-รับจ่ายUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่ายUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่ายUITests/Pods-รับจ่ายUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		52556DDB791131D8BF6BE128 /* Pods________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2924654ACAB33143115937 /* Pods________Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73547F9C27D55FA5BAE030E1 /* Pods-รับจ่าย.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่าย.release.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย.release.xcconfig"; sourceTree = "<group>"; };
+		8585A0E055CEE61D72628D0E /* Pods-รับจ่ายTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่ายTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่ายTests/Pods-รับจ่ายTests.debug.xcconfig"; sourceTree = "<group>"; };
+		905224491D63060100FF1E26 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		9052244D1D630B4700FF1E26 /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		9052244F1D630B8700FF1E26 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		9083FE491D757AC000F0C5B2 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
+		9083FE4B1D79714500F0C5B2 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		9083FE4E1D79AB5500F0C5B2 /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		9083FE521D79AD6900F0C5B2 /* WishingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishingList.swift; sourceTree = "<group>"; };
+		909326621D82AF0B00B0A843 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A1BBEB36F789D59376F66C22 /* Pods-รับจ่ายUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่ายUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่ายUITests/Pods-รับจ่ายUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B70B30091D320A33009AB70A /* รับจ่าย.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "รับจ่าย.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70B300C1D320A33009AB70A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B70B300E1D320A33009AB70A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B70B30111D320A33009AB70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B70B30131D320A33009AB70A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70B30161D320A33009AB70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +93,8 @@
 		B7B72E4E1D324FE8003C417F /* IncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		B7E7404E1D3294DC001A4E3B /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		B7F98AD31D34E72500D3BDB9 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		C419836F73FD2714C97E07AA /* Pods-รับจ่ายTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่ายTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่ายTests/Pods-รับจ่ายTests.release.xcconfig"; sourceTree = "<group>"; };
+		F3D5DC4658C800271434F5CB /* Pods-รับจ่าย.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-รับจ่าย.debug.xcconfig"; path = "Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1971862963A10FAA7DE4C0C5 /* Pods________.framework in Frameworks */,
+				909326631D82AF0B00B0A843 /* iAd.framework in Frameworks */,
+				F4410EEB03A8937A6A05412A /* Pods________.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA6E20820EA388A2416C30E /* Pods________Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,27 +119,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A20CF6E71A0EE57ECA1559 /* Pods________UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B9A2B7DF6C3ABAA9C3437C7 /* Pods */ = {
+		670B9B5B14315ED8F191E174 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				549921F138EBDC191CA64948 /* Pods-รับจ่าย.debug.xcconfig */,
-				B4032A3A597E12059AC40C17 /* Pods-รับจ่าย.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		6F4CAFA2E9AB60B4C7F51DB9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3A280D028867D1979B1D476B /* Pods________.framework */,
+				909326621D82AF0B00B0A843 /* iAd.framework */,
+				52556DDB791131D8BF6BE128 /* Pods________.framework */,
+				5E2924654ACAB33143115937 /* Pods________Tests.framework */,
+				022D18F8F3B99B1A0BF32EB6 /* Pods________UITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9083FE4D1D79715200F0C5B2 /* MainAccount */ = {
+			isa = PBXGroup;
+			children = (
+				9052244F1D630B8700FF1E26 /* MainTableViewController.swift */,
+				905224491D63060100FF1E26 /* AccountCell.swift */,
+				9083FE491D757AC000F0C5B2 /* AddAccountViewController.swift */,
+				9083FE4B1D79714500F0C5B2 /* EditAccountViewController.swift */,
+			);
+			name = MainAccount;
+			sourceTree = "<group>";
+		};
+		93E6FF892AB5F47EABE01CD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3D5DC4658C800271434F5CB /* Pods-รับจ่าย.debug.xcconfig */,
+				73547F9C27D55FA5BAE030E1 /* Pods-รับจ่าย.release.xcconfig */,
+				8585A0E055CEE61D72628D0E /* Pods-รับจ่ายTests.debug.xcconfig */,
+				C419836F73FD2714C97E07AA /* Pods-รับจ่ายTests.release.xcconfig */,
+				3AC14AF39ABC5ACA70C83BBB /* Pods-รับจ่ายUITests.debug.xcconfig */,
+				A1BBEB36F789D59376F66C22 /* Pods-รับจ่ายUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		B70B30001D320A33009AB70A = {
@@ -127,8 +170,8 @@
 				B70B30201D320A34009AB70A /* รับจ่ายTests */,
 				B70B302B1D320A34009AB70A /* รับจ่ายUITests */,
 				B70B300A1D320A33009AB70A /* Products */,
-				4B9A2B7DF6C3ABAA9C3437C7 /* Pods */,
-				6F4CAFA2E9AB60B4C7F51DB9 /* Frameworks */,
+				93E6FF892AB5F47EABE01CD5 /* Pods */,
+				670B9B5B14315ED8F191E174 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,11 +189,12 @@
 			isa = PBXGroup;
 			children = (
 				B70B300C1D320A33009AB70A /* AppDelegate.swift */,
-				B70B300E1D320A33009AB70A /* ViewController.swift */,
+				9052244D1D630B4700FF1E26 /* test.storyboard */,
 				B70B30101D320A33009AB70A /* Main.storyboard */,
 				B70B30131D320A33009AB70A /* Assets.xcassets */,
 				B70B30151D320A33009AB70A /* LaunchScreen.storyboard */,
 				B70B30181D320A33009AB70A /* Info.plist */,
+				9083FE4D1D79715200F0C5B2 /* MainAccount */,
 				B70B303D1D3231EF009AB70A /* MainViewController.swift */,
 				B7B72E4E1D324FE8003C417F /* IncomeViewController.swift */,
 				B7E7404E1D3294DC001A4E3B /* ExpenseViewController.swift */,
@@ -194,6 +238,8 @@
 				B70B59621D32D4170038FD32 /* Expense.swift */,
 				B79C15EA1D4A403100CF504C /* Setting.swift */,
 				B79C15EC1D4A40A100CF504C /* Account.swift */,
+				9083FE4E1D79AB5500F0C5B2 /* Accounts.swift */,
+				9083FE521D79AD6900F0C5B2 /* WishingList.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -205,12 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B70B30311D320A34009AB70A /* Build configuration list for PBXNativeTarget "รับจ่าย" */;
 			buildPhases = (
-				B0D958689EE5B99BD4416B70 /* Check Pods Manifest.lock */,
+				45C6FC2372C9B777AD2019E0 /* [CP] Check Pods Manifest.lock */,
 				B70B30051D320A33009AB70A /* Sources */,
 				B70B30061D320A33009AB70A /* Frameworks */,
 				B70B30071D320A33009AB70A /* Resources */,
-				091DEF8D18100D71C9450890 /* Embed Pods Frameworks */,
-				FD72EE57E70B227647095A1F /* Copy Pods Resources */,
+				51EC78D18FA16605C51A112E /* [CP] Embed Pods Frameworks */,
+				098AA7491D9D4905496E93C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B70B30341D320A34009AB70A /* Build configuration list for PBXNativeTarget "รับจ่ายTests" */;
 			buildPhases = (
+				A88C803EDEAD299E72460F62 /* [CP] Check Pods Manifest.lock */,
 				B70B30191D320A34009AB70A /* Sources */,
 				B70B301A1D320A34009AB70A /* Frameworks */,
 				B70B301B1D320A34009AB70A /* Resources */,
+				BFCEE0FB8707D5A10EA37D9D /* [CP] Embed Pods Frameworks */,
+				6A5EAA47541F160E502C6338 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B70B30371D320A34009AB70A /* Build configuration list for PBXNativeTarget "รับจ่ายUITests" */;
 			buildPhases = (
+				6DBC909F17DF259A3FC27FC8 /* [CP] Check Pods Manifest.lock */,
 				B70B30241D320A34009AB70A /* Sources */,
 				B70B30251D320A34009AB70A /* Frameworks */,
 				B70B30261D320A34009AB70A /* Resources */,
+				06BAD460C763ECEBC8DEB72D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,6 +363,7 @@
 				B70B30171D320A33009AB70A /* LaunchScreen.storyboard in Resources */,
 				B70B30141D320A33009AB70A /* Assets.xcassets in Resources */,
 				B70B30121D320A33009AB70A /* Main.storyboard in Resources */,
+				9052244E1D630B4700FF1E26 /* test.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,29 +384,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		091DEF8D18100D71C9450890 /* Embed Pods Frameworks */ = {
+		06BAD460C763ECEBC8DEB72D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่ายUITests/Pods-รับจ่ายUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0D958689EE5B99BD4416B70 /* Check Pods Manifest.lock */ = {
+		098AA7491D9D4905496E93C3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45C6FC2372C9B777AD2019E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,19 +429,79 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FD72EE57E70B227647095A1F /* Copy Pods Resources */ = {
+		51EC78D18FA16605C51A112E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่าย/Pods-รับจ่าย-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A5EAA47541F160E502C6338 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่ายTests/Pods-รับจ่ายTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DBC909F17DF259A3FC27FC8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A88C803EDEAD299E72460F62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BFCEE0FB8707D5A10EA37D9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-รับจ่ายTests/Pods-รับจ่ายTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -387,14 +514,19 @@
 				B70B59631D32D4170038FD32 /* Expense.swift in Sources */,
 				B7E7404F1D3294DC001A4E3B /* ExpenseViewController.swift in Sources */,
 				B70B303E1D3231EF009AB70A /* MainViewController.swift in Sources */,
+				9083FE4F1D79AB5500F0C5B2 /* Accounts.swift in Sources */,
 				B7B72E4F1D324FE8003C417F /* IncomeViewController.swift in Sources */,
 				B7720E851D429D4100F5852E /* AnalysisViewController.swift in Sources */,
 				B79C15ED1D4A40A100CF504C /* Account.swift in Sources */,
-				B70B300F1D320A33009AB70A /* ViewController.swift in Sources */,
+				9083FE4A1D757AC000F0C5B2 /* AddAccountViewController.swift in Sources */,
 				B79C15EB1D4A403100CF504C /* Setting.swift in Sources */,
 				B70B300D1D320A33009AB70A /* AppDelegate.swift in Sources */,
+				9083FE531D79AD6900F0C5B2 /* WishingList.swift in Sources */,
 				B7F98AD41D34E72500D3BDB9 /* CalendarViewController.swift in Sources */,
+				9052244A1D63060100FF1E26 /* AccountCell.swift in Sources */,
+				9083FE4C1D79714500F0C5B2 /* EditAccountViewController.swift in Sources */,
 				B70B59651D334D7F0038FD32 /* HistoryViewController.swift in Sources */,
+				905224501D630B8700FF1E26 /* MainTableViewController.swift in Sources */,
 				B77DEF4A1D325B9A00C546D5 /* Income.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +669,7 @@
 		};
 		B70B30321D320A34009AB70A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 549921F138EBDC191CA64948 /* Pods-รับจ่าย.debug.xcconfig */;
+			baseConfigurationReference = F3D5DC4658C800271434F5CB /* Pods-รับจ่าย.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -553,7 +685,7 @@
 		};
 		B70B30331D320A34009AB70A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4032A3A597E12059AC40C17 /* Pods-รับจ่าย.release.xcconfig */;
+			baseConfigurationReference = 73547F9C27D55FA5BAE030E1 /* Pods-รับจ่าย.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -569,6 +701,7 @@
 		};
 		B70B30351D320A34009AB70A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8585A0E055CEE61D72628D0E /* Pods-รับจ่ายTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "รับจ่ายTests/Info.plist";
@@ -581,6 +714,7 @@
 		};
 		B70B30361D320A34009AB70A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C419836F73FD2714C97E07AA /* Pods-รับจ่ายTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "รับจ่ายTests/Info.plist";
@@ -593,6 +727,7 @@
 		};
 		B70B30381D320A34009AB70A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC14AF39ABC5ACA70C83BBB /* Pods-รับจ่ายUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "รับจ่ายUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -604,6 +739,7 @@
 		};
 		B70B30391D320A34009AB70A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1BBEB36F789D59376F66C22 /* Pods-รับจ่ายUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "รับจ่ายUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -10,37 +10,40 @@ import UIKit
 import iAd
 import Realm
 import SCLAlertView
-class MainViewController: UIViewController,ADBannerViewDelegate,UITextFieldDelegate {
+
+class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDelegate {
     var incomeArray = [Income]()
     var sortedDate = [Int]()
     var today = NSDate()
-    @IBOutlet weak var tf_start_money: UITextField!
-    @IBOutlet weak var iAdBanner: ADBannerView!
-    @IBOutlet weak var alert_setting: UIView!
-    @IBOutlet weak var tf_input_money: UITextField!
+    //@IBOutlet weak var tf_start_money: UITextField!
+    //@IBOutlet weak var iAdBanner: ADBannerView!
+//    @IBOutlet weak var alert_setting: UIView!
+//    @IBOutlet weak var tf_input_money: UITextField!
+    @IBOutlet var banner: ADBannerView!
+    
     @IBOutlet weak var lb_today_money: UILabel!
     @IBOutlet weak var lb_all_money: UILabel!
     @IBOutlet weak var main_view: UIView!
     @IBOutlet weak var btn_account: UIButton!
-    @IBAction func btn_reset_action(sender: UIButton) {
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        realm.deleteAllObjects()
-        try! realm.commitWriteTransaction()
-        alert_setting.hidden = true
-        if let tag = main_view.viewWithTag(1) {
-            tag.removeFromSuperview()
-        }
-        incomeArray.removeAll()
-        gatherAll()
-    }
-    @IBAction func confirm_alert_setting(sender: UIButton) {
-        alert_setting.hidden = true
-        if let tag = main_view.viewWithTag(1) {
-            tag.removeFromSuperview()
-        }
-        
-    }
+//    @IBAction func btn_reset_action(sender: UIButton) {
+//        let realm = RLMRealm.defaultRealm()
+//        realm.beginWriteTransaction()
+//        realm.deleteAllObjects()
+//        try! realm.commitWriteTransaction()
+//        alert_setting.hidden = true
+//        if let tag = main_view.viewWithTag(1) {
+//            tag.removeFromSuperview()
+//        }
+//        incomeArray.removeAll()
+//        gatherAll()
+//    }
+//    @IBAction func confirm_alert_setting(sender: UIButton) {
+//        alert_setting.hidden = true
+//        if let tag = main_view.viewWithTag(1) {
+//            tag.removeFromSuperview()
+//        }
+//        
+//    }
     @IBAction func btn_switch_account(sender: UIButton) {
         let account = Account.allObjects()
         let setting = Setting.allObjects()
@@ -110,23 +113,23 @@ class MainViewController: UIViewController,ADBannerViewDelegate,UITextFieldDeleg
         
 
     }
-    @IBAction func btn_confirm(sender: UIButton) {
-        if tf_start_money.text != ""{
-            let realm = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            let income = Income()
-            income.money = Double(tf_start_money.text!)!
-            income.type = "เงินเริ่มต้น"
-            realm.addObject(income)
-            try! realm.commitWriteTransaction()
-            alert_setting.hidden = true
-            if let tag = main_view.viewWithTag(1) {
-                tag.removeFromSuperview()
-            }
-            
-        }
-        gatherAll()
-    }
+//    @IBAction func btn_confirm(sender: UIButton) {
+//        if tf_start_money.text != ""{
+//            let realm = RLMRealm.defaultRealm()
+//            realm.beginWriteTransaction()
+//            let income = Income()
+//            income.money = Double(tf_start_money.text!)!
+//            income.type = "เงินเริ่มต้น"
+//            realm.addObject(income)
+//            try! realm.commitWriteTransaction()
+//            alert_setting.hidden = true
+//            if let tag = main_view.viewWithTag(1) {
+//                tag.removeFromSuperview()
+//            }
+//            
+//        }
+//        gatherAll()
+//    }
     @IBAction func btn_minus(sender: UIButton) {
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
@@ -188,22 +191,25 @@ class MainViewController: UIViewController,ADBannerViewDelegate,UITextFieldDeleg
         })
         alert.showWarning("เตือน", subTitle: "ต้องการจะลบบัญชีใช่หรือไม่")
     }
-    @IBAction func btn_setting_action(sender: UIButton) {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blur = UIVisualEffectView(effect: blurEffect)
-        blur.frame = self.view.bounds
-        blur.tag = 1
-        main_view.addSubview(blur)
-        alert_setting.hidden = false
-    }
+//    @IBAction func btn_setting_action(sender: UIButton) {
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+//        let blur = UIVisualEffectView(effect: blurEffect)
+//        blur.frame = self.view.bounds
+//        blur.tag = 1
+//        main_view.addSubview(blur)
+//        alert_setting.hidden = false
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        tf_start_money.delegate = self
+        //tf_start_money.delegate = self
         let account = Account.allObjects()
         if account.count > 0 {
             btn_account.setTitle((account[0] as! Account).account_id, forState: .Normal)
         }
         self.canDisplayBannerAds = true
+        self.banner?.delegate = self
+        self.banner?.hidden = true
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(animated: Bool) {
@@ -239,15 +245,31 @@ class MainViewController: UIViewController,ADBannerViewDelegate,UITextFieldDeleg
         textField.resignFirstResponder()
         return true
     }
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        print(error)
+    
+    ///Banner
+    
+    func bannerViewWillLoadAd(banner: ADBannerView!) {
+        
+        
     }
     func bannerViewDidLoadAd(banner: ADBannerView!) {
-        iAdBanner.hidden = false
+        
+        self.banner?.hidden = false
+    }
+    func bannerViewActionDidFinish(banner: ADBannerView!) {
+        
+        
     }
     func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
         return true
     }
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        
+        
+    }
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         gatherAll()

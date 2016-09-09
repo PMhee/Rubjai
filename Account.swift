@@ -8,7 +8,7 @@
 
 import Foundation
 import Realm
-class Account:RLMObject{
+class Account:RLMObject{ 
     dynamic var account_id : String = ""
-    dynamic var count : Int = 0 
+    dynamic var count : Int = 0
 }

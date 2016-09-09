@@ -203,11 +203,11 @@ public final class CVCalendarView: UIView {
 // MARK: - Frames update
 
 extension CVCalendarView {
-    public func commitCalendarViewUpdate(bounds:CGRect) {
+    public func commitCalendarViewUpdate() {
         if let _ = delegate, let contentController = contentController {
-            let contentViewSize = bounds.size
+            let contentViewSize = contentController.bounds.size
             let selfSize = bounds.size
-            let screenSize = bounds.size
+            let screenSize = UIScreen.mainScreen().bounds.size
             
             let allowed = selfSize.width <= screenSize.width && selfSize.height <= screenSize.height
             
