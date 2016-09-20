@@ -24,7 +24,10 @@ class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDeleg
     @IBOutlet weak var lb_today_money: UILabel!
     @IBOutlet weak var lb_all_money: UILabel!
     @IBOutlet weak var main_view: UIView!
-    @IBOutlet weak var btn_account: UIButton!
+    
+    @IBOutlet var nameAccount: UILabel!
+    var account = Accounts()
+    //@IBOutlet weak var btn_account: UIButton!
 //    @IBAction func btn_reset_action(sender: UIButton) {
 //        let realm = RLMRealm.defaultRealm()
 //        realm.beginWriteTransaction()
@@ -44,75 +47,76 @@ class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDeleg
 //        }
 //        
 //    }
-    @IBAction func btn_switch_account(sender: UIButton) {
-        let account = Account.allObjects()
-        let setting = Setting.allObjects()
-        let acc = account[0] as! Account
-        var count = 0
-        if setting.count == 1 {
-            
-        }else{
-            count = acc.count
-            count += 1
-            if UInt(count) >= setting.count{
-                count = 0
-            }
-            btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
-            let realm = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            let a = account[0] as! Account
-            a.count = count
-            a.account_id = setting[UInt(count)].account_id
-            try! realm.commitWriteTransaction()
-            gatherAll()
-        }
-    }
-    @IBAction func add_account(sender: UIButton) {
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
-            kTextFont: UIFont(name: "WRTishKid", size: 16)!,
-            kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
-            showCloseButton: false
-        )
-        let alert = SCLAlertView(appearance:appearance)
-        let txt = alert.addTextField("ใส่ชื่อบัญชี")
-        
-        alert.addButton("ตกลง", action: {
-            let set = Setting()
-            let realm  = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            set.account_id = txt.text!
-            realm.addObject(set)
-            try! realm.commitWriteTransaction()
-            let account = Account.allObjects()
-            let setting = Setting.allObjects()
-            let acc = account[0] as! Account
-            var count = 0
-            if setting.count == 1 {
-                
-            }else{
-                count = acc.count
-                count += 1
-                if UInt(count) >= setting.count{
-                    count = 0
-                }
-                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
-                let realm = RLMRealm.defaultRealm()
-                realm.beginWriteTransaction()
-                let a = account[0] as! Account
-                a.count = count
-                a.account_id = setting[UInt(count)].account_id
-                try! realm.commitWriteTransaction()
-                self.gatherAll()
-            }
-
-        })
-        alert.addButton("ยกเลิก", action: {
-        })
-        alert.showEdit("เพิ่มบัญชี", subTitle: "กรุณาระบุชื่อบัญชี")
-        
-
-    }
+    
+//    @IBAction func btn_switch_account(sender: UIButton) {
+//        let account = Account.allObjects()
+//        let setting = Setting.allObjects()
+//        let acc = account[0] as! Account
+//        var count = 0
+//        if setting.count == 1 {
+//            
+//        }else{
+//            count = acc.count
+//            count += 1
+//            if UInt(count) >= setting.count{
+//                count = 0
+//            }
+//            btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
+//            let realm = RLMRealm.defaultRealm()
+//            realm.beginWriteTransaction()
+//            let a = account[0] as! Account
+//            a.count = count
+//            a.account_id = setting[UInt(count)].account_id
+//            try! realm.commitWriteTransaction()
+//            gatherAll()
+//        }
+//    }
+//    @IBAction func add_account(sender: UIButton) {
+//        let appearance = SCLAlertView.SCLAppearance(
+//            kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
+//            kTextFont: UIFont(name: "WRTishKid", size: 16)!,
+//            kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
+//            showCloseButton: false
+//        )
+//        let alert = SCLAlertView(appearance:appearance)
+//        let txt = alert.addTextField("ใส่ชื่อบัญชี")
+//        
+//        alert.addButton("ตกลง", action: {
+//            let set = Setting()
+//            let realm  = RLMRealm.defaultRealm()
+//            realm.beginWriteTransaction()
+//            set.account_id = txt.text!
+//            realm.addObject(set)
+//            try! realm.commitWriteTransaction()
+//            let account = Account.allObjects()
+//            let setting = Setting.allObjects()
+//            let acc = account[0] as! Account
+//            var count = 0
+//            if setting.count == 1 {
+//                
+//            }else{
+//                count = acc.count
+//                count += 1
+//                if UInt(count) >= setting.count{
+//                    count = 0
+//                }
+//                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
+//                let realm = RLMRealm.defaultRealm()
+//                realm.beginWriteTransaction()
+//                let a = account[0] as! Account
+//                a.count = count
+//                a.account_id = setting[UInt(count)].account_id
+//                try! realm.commitWriteTransaction()
+//                self.gatherAll()
+//            }
+//
+//        })
+//        alert.addButton("ยกเลิก", action: {
+//        })
+//        alert.showEdit("เพิ่มบัญชี", subTitle: "กรุณาระบุชื่อบัญชี")
+//        
+//
+//    }
 //    @IBAction func btn_confirm(sender: UIButton) {
 //        if tf_start_money.text != ""{
 //            let realm = RLMRealm.defaultRealm()
@@ -130,67 +134,69 @@ class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDeleg
 //        }
 //        gatherAll()
 //    }
-    @IBAction func btn_minus(sender: UIButton) {
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
-            kTextFont: UIFont(name: "WRTishKid", size: 16)!,
-            kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
-            showCloseButton: false
-        )
-        let alert = SCLAlertView(appearance:appearance)
-        alert.addButton("ตกลง", action: {
-            let set = Setting()
-            var setting = Setting.allObjects()
-             let account = Account.allObjects()
-            let acc = account[0] as! Account
-            let realm  = RLMRealm.defaultRealm()
-            if setting.count == 1 {
-                
-            }else{
-            realm.beginWriteTransaction()
-            let s = setting[UInt(acc.count)] as! Setting
-            realm.deleteObject(s)
-            try! realm.commitWriteTransaction()
-            }
-            var count = 0
-            setting = Setting.allObjects()
-            if setting.count == 1 {
-                count = acc.count
-                count -= 1
-                if count == -1 {
-                    count = 0
-                }
-                print(count)
-                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
-                let realm = RLMRealm.defaultRealm()
-                realm.beginWriteTransaction()
-                let a = account[0] as! Account
-                a.count = count
-                a.account_id = setting[UInt(count)].account_id
-                try! realm.commitWriteTransaction()
-                self.gatherAll()
-
-            }else{
-                count = acc.count
-                count -= 1
-                if count == -1 {
-                    count = 0
-                }
-                print(count)
-                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
-                let realm = RLMRealm.defaultRealm()
-                realm.beginWriteTransaction()
-                let a = account[0] as! Account
-                a.count = count
-                a.account_id = setting[UInt(count)].account_id
-                try! realm.commitWriteTransaction()
-                self.gatherAll()
-            }
-        })
-        alert.addButton("ยกเลิก", action: {
-        })
-        alert.showWarning("เตือน", subTitle: "ต้องการจะลบบัญชีใช่หรือไม่")
-    }
+//    @IBAction func btn_minus(sender: UIButton) {
+//        let appearance = SCLAlertView.SCLAppearance(
+//            kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
+//            kTextFont: UIFont(name: "WRTishKid", size: 16)!,
+//            kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
+//            showCloseButton: false
+//        )
+//        let alert = SCLAlertView(appearance:appearance)
+//        alert.addButton("ตกลง", action: {
+//            let set = Setting()
+//            var setting = Setting.allObjects()
+//             let account = Account.allObjects()
+//            let acc = account[0] as! Account
+//            let realm  = RLMRealm.defaultRealm()
+//            if setting.count == 1 {
+//                
+//            }else{
+//            realm.beginWriteTransaction()
+//            let s = setting[UInt(acc.count)] as! Setting
+//            realm.deleteObject(s)
+//            try! realm.commitWriteTransaction()
+//            }
+//            var count = 0
+//            setting = Setting.allObjects()
+//            if setting.count == 1 {
+//                count = acc.count
+//                count -= 1
+//                if count == -1 {
+//                    count = 0
+//                }
+//                print(count)
+//                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
+//                let realm = RLMRealm.defaultRealm()
+//                realm.beginWriteTransaction()
+//                let a = account[0] as! Account
+//                a.count = count
+//                a.account_id = setting[UInt(count)].account_id
+//                try! realm.commitWriteTransaction()
+//                self.gatherAll()
+//
+//            }else{
+//                count = acc.count
+//                count -= 1
+//                if count == -1 {
+//                    count = 0
+//                }
+//                print(count)
+//                self.btn_account.setTitle((setting[UInt(count)] as! Setting).account_id, forState: .Normal)
+//                let realm = RLMRealm.defaultRealm()
+//                realm.beginWriteTransaction()
+//                let a = account[0] as! Account
+//                a.count = count
+//                a.account_id = setting[UInt(count)].account_id
+//                try! realm.commitWriteTransaction()
+//                self.gatherAll()
+//            }
+//        })
+//        alert.addButton("ยกเลิก", action: {
+//        })
+//        alert.showWarning("เตือน", subTitle: "ต้องการจะลบบัญชีใช่หรือไม่")
+//    }
+    
+    
 //    @IBAction func btn_setting_action(sender: UIButton) {
 //        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
 //        let blur = UIVisualEffectView(effect: blurEffect)
@@ -202,10 +208,12 @@ class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         //tf_start_money.delegate = self
-        let account = Account.allObjects()
-        if account.count > 0 {
-            btn_account.setTitle((account[0] as! Account).account_id, forState: .Normal)
-        }
+        //let account = Account.allObjects()
+//        if account.count > 0 {
+//            //btn_account.setTitle((account[0] as! Account).account_id, forState: .Normal)
+//            
+//        }
+        nameAccount.text = account.account_name
         self.canDisplayBannerAds = true
         self.banner?.delegate = self
         self.banner?.hidden = true
@@ -214,32 +222,32 @@ class MainViewController: UIViewController,UITextFieldDelegate,ADBannerViewDeleg
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let setting = Setting.allObjects()
-        if setting.count == 0 {
-            let appearance = SCLAlertView.SCLAppearance(
-                kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
-                kTextFont: UIFont(name: "WRTishKid", size: 16)!,
-                kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
-                showCloseButton: false
-            )
-            let alert = SCLAlertView(appearance:appearance)
-            let txt = alert.addTextField("ใส่ชื่อบัญชี")
-            alert.addButton("ตกลง", action: {
-                let setting = Setting()
-                let account = Account()
-                let realm  = RLMRealm.defaultRealm()
-                setting.account_id = txt.text!
-                account.account_id = txt.text!
-                account.count = 0
-                realm.beginWriteTransaction()
-                realm.addObject(setting)
-                realm.addObject(account)
-                try! realm.commitWriteTransaction()
-                let acc = Account.allObjects()
-                self.btn_account.setTitle((acc[0] as! Account).account_id, forState: .Normal)
-            })
-            alert.showEdit("เพิ่มบัญชี", subTitle: "กรุณาระบุชื่อบัญชี")
-        }
+//        let setting = Setting.allObjects()
+//        if setting.count == 0 {
+//            let appearance = SCLAlertView.SCLAppearance(
+//                kTitleFont: UIFont(name: "WRTishKid", size: 20)!,
+//                kTextFont: UIFont(name: "WRTishKid", size: 16)!,
+//                kButtonFont: UIFont(name: "WRTishKid", size: 16)!,
+//                showCloseButton: false
+//            )
+//            let alert = SCLAlertView(appearance:appearance)
+//            let txt = alert.addTextField("ใส่ชื่อบัญชี")
+//            alert.addButton("ตกลง", action: {
+//                let setting = Setting()
+//                let account = Account()
+//                let realm  = RLMRealm.defaultRealm()
+//                setting.account_id = txt.text!
+//                account.account_id = txt.text!
+//                account.count = 0
+//                realm.beginWriteTransaction()
+//                realm.addObject(setting)
+//                realm.addObject(account)
+//                try! realm.commitWriteTransaction()
+//                let acc = Account.allObjects()
+//                self.btn_account.setTitle((acc[0] as! Account).account_id, forState: .Normal)
+//            })
+//            alert.showEdit("เพิ่มบัญชี", subTitle: "กรุณาระบุชื่อบัญชี")
+//        }
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

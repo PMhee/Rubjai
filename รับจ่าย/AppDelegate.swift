@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         //UpdateRealm
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 3, migrationBlock: { migration, oldSchemaVersion in
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 8, migrationBlock: { migration, oldSchemaVersion in
             // The enumerateObjects:block: method iterates
             // over every 'Person' object stored in the Realm file
             migration.enumerate(Account.className()) { oldObject, newObject in
@@ -67,12 +67,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
                 
-                
+                if oldSchemaVersion < 8 {
+                    
+                    let realm = RLMRealm.defaultRealm()
+                    
+                    var check = false
+                    
+                    let setting = Account.allObjects()
+                    print("new")
+                    print(setting.count)
+                    let income = Income.allObjects()
+                    for j in 0..<setting.count{
+                        var sumAll = 0.0
+                        for i in 0..<income.count{
+                            if (income[i] as! Income).account_id == (setting[j] as! Account).account_id{
+                                if (income[i] as! Income).money_type == "income"{
+                                    sumAll += (income[i] as! Income).money
+                                }else{
+                                    sumAll -= (income[i] as! Income).money
+                                }
+                            }
+                            
+                        }
+                        
+                        if check == true {
+                           realm.beginWriteTransaction()
+                        }
+                        
+                        let account = Accounts()
+                        let s = setting[j] as! Account
+                        account.account_id = s.account_id
+                        account.account_name = s.account_id
+                        account.currentMoney = sumAll
+                        realm.addObject(account)
+                        try! realm.commitWriteTransaction()
+                        check = true
+                        
+                    }
+                    
+                    
+
+                }
+
                 
                 
             }
             migration.enumerate(WishingList.className()) { oldObject, newObject in
-                if oldSchemaVersion < 2 {
+                if oldSchemaVersion < 1 {
                     //
                     newObject!["wishingList_image"] = ""
                 }

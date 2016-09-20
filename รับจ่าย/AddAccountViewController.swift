@@ -27,8 +27,9 @@ class AddAccountViewController: UIViewController {
         }else{
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
-            let account = Account()
+            let account = Accounts()
             account.account_id = nameAccount.text!
+            account.account_name = nameAccount.text!
             
             let income = Income()
             income.account_id = nameAccount.text!
@@ -49,8 +50,9 @@ class AddAccountViewController: UIViewController {
         }else{
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
-            let account = Account()
+            let account = Accounts()
             account.account_id = nameAccount.text!
+            account.account_name = nameAccount.text!
             
             let income = Income()
             income.account_id = nameAccount.text!
@@ -60,7 +62,6 @@ class AddAccountViewController: UIViewController {
             try! realm.commitWriteTransaction()
             
             dismissViewControllerAnimated(true, completion: nil)
-
         }
     }
     

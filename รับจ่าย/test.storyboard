@@ -245,9 +245,6 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="279" height="72"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <state key="normal" title="บันทึก"/>
-                                                                    <connections>
-                                                                        <segue destination="MCd-xb-lEx" kind="presentation" modalTransitionStyle="crossDissolve" id="eJo-zy-rnc"/>
-                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.27058823529999998" green="0.59215686270000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -432,6 +429,7 @@
                                     <outlet property="editButton" destination="fRs-Ic-KrW" id="qNX-n3-vec"/>
                                     <outlet property="foregroundView" destination="S0e-47-UqP" id="0jG-RT-RqP"/>
                                     <outlet property="foregroundViewTop" destination="bk4-hd-pq5" id="T1y-xJ-RwP"/>
+                                    <outlet property="goToAccountButton" destination="tdf-eP-JXV" id="CZl-ED-J1z"/>
                                     <outlet property="moneyFixedLabel" destination="v6j-Wb-WQN" id="Uq7-9Y-LtQ"/>
                                     <outlet property="moneyFixedLabel2" destination="NQ0-pW-5hC" id="lJy-Pk-xWb"/>
                                     <outlet property="nameFixedLabel" destination="u1N-iZ-NMm" id="X1n-Qd-aCT"/>
@@ -471,6 +469,7 @@
                     <connections>
                         <outlet property="setting" destination="3W8-3S-yyu" id="Zra-Tk-UnK"/>
                         <segue destination="StN-Yf-rO3" kind="presentation" identifier="editAccount" modalTransitionStyle="crossDissolve" id="HU7-Qu-If3"/>
+                        <segue destination="MCd-xb-lEx" kind="presentation" identifier="mainAccount" modalTransitionStyle="crossDissolve" id="7XA-5F-Bl5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8g-eg-uEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -570,7 +569,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3o8-eY-CRD">
             <objects>
-                <navigationController storyboardIdentifier="mian" automaticallyAdjustsScrollViewInsets="NO" id="lSq-Wk-NlV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="home" automaticallyAdjustsScrollViewInsets="NO" id="lSq-Wk-NlV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="DLy-fD-QFl">
@@ -616,19 +615,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เงินเริ่มต้น :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHL-FF-N2F">
-                                <rect key="frame" x="87" y="198" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zsP-fl-uXQ">
-                                <rect key="frame" x="189" y="194" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="imY-TA-btF">
-                                <rect key="frame" x="189" y="130" width="97" height="30"/>
+                                <rect key="frame" x="181" y="130" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Scs-To-9BG"/>
                                 </constraints>
@@ -645,6 +633,9 @@
                                 <rect key="frame" x="275" y="285" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="ลบบัญชี"/>
+                                <connections>
+                                    <action selector="deleteAccount:" destination="ASI-bd-D0G" eventType="touchUpInside" id="vl5-2O-Lhr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-yG-8Rb">
                                 <rect key="frame" x="279" y="247" width="38" height="30"/>
@@ -656,19 +647,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WjU-Oh-eIa" firstAttribute="leading" secondItem="rHL-FF-N2F" secondAttribute="leading" id="0SI-c9-Nc6"/>
                             <constraint firstItem="WjU-Oh-eIa" firstAttribute="centerY" secondItem="imY-TA-btF" secondAttribute="centerY" id="0oL-X0-4Wm"/>
                             <constraint firstItem="Wrv-dz-HHu" firstAttribute="top" secondItem="0Ch-yG-8Rb" secondAttribute="bottom" constant="8" id="Cam-hk-ISB"/>
-                            <constraint firstItem="rHL-FF-N2F" firstAttribute="centerY" secondItem="zsP-fl-uXQ" secondAttribute="centerY" id="Cwe-as-PDZ"/>
-                            <constraint firstItem="zsP-fl-uXQ" firstAttribute="top" secondItem="imY-TA-btF" secondAttribute="bottom" constant="34" id="Kuh-t8-ax6"/>
-                            <constraint firstItem="imY-TA-btF" firstAttribute="trailing" secondItem="zsP-fl-uXQ" secondAttribute="trailing" id="L4R-Sz-a2T"/>
                             <constraint firstItem="Wrv-dz-HHu" firstAttribute="centerY" secondItem="8o2-CU-kex" secondAttribute="centerY" id="Unw-Vp-Zs6"/>
-                            <constraint firstItem="imY-TA-btF" firstAttribute="leading" secondItem="zsP-fl-uXQ" secondAttribute="leading" id="bWr-cA-pHb"/>
                             <constraint firstItem="WjU-Oh-eIa" firstAttribute="leading" secondItem="8o2-CU-kex" secondAttribute="leadingMargin" constant="67" id="jLd-Tw-dNb"/>
                             <constraint firstItem="0Ch-yG-8Rb" firstAttribute="centerX" secondItem="8o2-CU-kex" secondAttribute="centerX" id="tGD-sl-hv5"/>
                             <constraint firstItem="Wrv-dz-HHu" firstAttribute="centerX" secondItem="8o2-CU-kex" secondAttribute="centerX" id="xkd-3D-nnx"/>
+                            <constraint firstItem="imY-TA-btF" firstAttribute="leading" secondItem="WjU-Oh-eIa" secondAttribute="trailing" constant="30" id="yJX-hN-cNh"/>
                             <constraint firstItem="imY-TA-btF" firstAttribute="top" secondItem="hik-xk-7R5" secondAttribute="bottom" constant="66" id="yoG-Jb-aLm"/>
-                            <constraint firstItem="zsP-fl-uXQ" firstAttribute="leading" secondItem="rHL-FF-N2F" secondAttribute="trailing" constant="23" id="zVq-1D-wbH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="แก้ไขบัญชี" id="bpZ-ET-3b2">
@@ -684,8 +670,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="moneyAccount" destination="zsP-fl-uXQ" id="jOE-mi-nVi"/>
                         <outlet property="nameAccount" destination="imY-TA-btF" id="VLD-Xh-7ve"/>
+                        <segue destination="lSq-Wk-NlV" kind="presentation" identifier="backHome" modalTransitionStyle="crossDissolve" id="k2q-qQ-2Al"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1e-y1-ibi" userLabel="First Responder" sceneMemberID="firstResponder"/>

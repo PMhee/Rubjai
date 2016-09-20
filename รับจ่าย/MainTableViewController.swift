@@ -7,7 +7,7 @@ class MainTableViewController: UITableViewController {
     let kCloseCellHeight: CGFloat = 164
     let kOpenCellHeight: CGFloat = 464
     
-    let kRowsCount = 10
+    var kRowsCount = Int()
     
     var cellHeights = [CGFloat]()
     
@@ -19,7 +19,7 @@ class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var portButtton: UIButton!
     
-    var accountArr = [Account]()
+    var accountArr = [Accounts]()
     var accountMoneyArr = [String:Double]()
     
     let cell = [AccountCell]()
@@ -28,8 +28,15 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        createCellHeightsArray()
+        
+//        let ac = Account.allObjects()
+//        print(ac.count)
+//        let acs = Accounts.allObjects()
+//        print(acs.count)
+//        let s = Setting.allObjects()
+//        print(s.count)
+        
+        //createCellHeightsArray()
         self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         
         let button = UIButton()
@@ -38,7 +45,7 @@ class MainTableViewController: UITableViewController {
         
         
         setting.customView = button
-        print(setting)
+        //print(setting)
         self.navigationItem.leftBarButtonItem = setting
         //Realm
         
@@ -46,12 +53,14 @@ class MainTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        let account = Account.allObjects()
-        accountArr = [Account]()
+        let account = Accounts.allObjects()
+        accountArr = [Accounts]()
         for i in 0..<account.count {
-            accountArr.append(account[i] as! Account)
+            accountArr.append(account[i] as! Accounts)
         }
-        print(account.count)
+        //print(account.count)
+        kRowsCount = Int(account.count)
+        createCellHeightsArray()
         self.tableView.reloadData()
     }
     
@@ -89,12 +98,14 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FoldingCell", forIndexPath: indexPath) as! AccountCell
-        cell.accountName.text = accountArr[indexPath.row].account_id
-        cell.accountName2.text = accountArr[indexPath.row].account_id
+        cell.accountName.text = accountArr[indexPath.row].account_name
+        cell.accountName2.text = accountArr[indexPath.row].account_name
         
         
         cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editAccount(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.goToAccountButton.tag = indexPath.row
+        cell.goToAccountButton.addTarget(self, action: #selector(goToAccount(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         var wl = indexPath.row
         
@@ -157,17 +168,16 @@ class MainTableViewController: UITableViewController {
     }
     
     func editAccount(sender: UIButton) {
-        print(sender.tag)
         accountToEdit = sender.tag
         self.performSegueWithIdentifier("editAccount", sender: self)
     }
     
-    func nextWl(cell: String) {
-        print(cell)
-//        cell.index = 2
-//        cell.wlPrice.text = "\(cell.index)"
-        
+    func goToAccount(sender: UIButton) {
+        accountToEdit = sender.tag
+        self.performSegueWithIdentifier("mainAccount", sender: self)
     }
+    
+
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -176,9 +186,16 @@ class MainTableViewController: UITableViewController {
             let nav = segue.destinationViewController as! UINavigationController
             let destinationController = nav.topViewController as! EditAccountViewController
             //let destinationController = segue.destinationViewController as! EditAccountViewController
-            print(accountArr[accountToEdit].account_id)
-            destinationController.accountName = accountArr[accountToEdit].account_id
+            
+            destinationController.account = accountArr[accountToEdit]
+        }else if (segue.identifier == "mainAccount"){
+            
+            //let nav = segue.destinationViewController as! UINavigationController
+            //let destinationController = nav.topViewController as! EditAccountViewController
+            let destinationController = segue.destinationViewController as! MainViewController
+            destinationController.account = accountArr[accountToEdit]
         }
+
     }
     
     
@@ -186,11 +203,11 @@ class MainTableViewController: UITableViewController {
         let income = Income.allObjects()
         incomeArray = [Income]()
         var sumAll = 0.0
-        let account = Account.allObjects()
+        let account = Accounts.allObjects()
         sortedDate = [Int]()
         if account.count > 0 {
             for i in 0..<income.count{
-                if (income[i] as! Income).account_id == (account[0] as! Account).account_id{
+                if (income[i] as! Income).account_id == (account[0] as! Accounts).account_id{
                     incomeArray.append(income[i] as! Income)
                     if (income[i] as! Income).money_type == "income"{
                         sumAll += (income[i] as! Income).money

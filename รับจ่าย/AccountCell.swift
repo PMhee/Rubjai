@@ -27,6 +27,7 @@ class AccountCell: FoldingCell {
     
         
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet var goToAccountButton: UIButton!
     
     
     //WishingList
